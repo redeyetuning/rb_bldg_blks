@@ -5,8 +5,18 @@
 #of positions down the alphabet. For example, with a left shift of 3, D would be 
 #replaced by A, E would become B, and so on. The method is named after Julius 
 #Caesar, who used it in his private correspondence.
-class Caeser_cipher
-	def self.encode string, shift
+class CaeserCipher
+	def run
+		puts "Enter string to encrypt:"
+		phrase = gets.chomp
+		puts "Enter numerical shift factor:"
+		shift = gets.chomp.to_i
+
+		self.encode(phrase, shift)
+	end 
+
+
+	def self.encode string, shift= 0
 		output = []
 
 		string.split("").each do |char|
@@ -34,14 +44,7 @@ class Caeser_cipher
 			end
 		end
 
-		puts output.join
+		output.join
 	end
-
-	puts "Enter string to encrypt:"
-	phrase = gets.chomp
-	puts "Enter numerical shift factor:"
-	shift = gets.chomp.to_i
-
-	self.encode(phrase, shift)
 
 end
